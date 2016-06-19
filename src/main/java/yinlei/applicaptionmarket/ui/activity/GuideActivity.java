@@ -54,6 +54,7 @@ public class GuideActivity extends BaseAppCompatActivity implements ViewPager.On
         pagers.add(view_guide02);
         pagers.add(view_guide03);
         pagers.add(view_guide04);
+
         mPagerAdapter = new FragmentPagerAdapter();
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setOnPageChangeListener(this);

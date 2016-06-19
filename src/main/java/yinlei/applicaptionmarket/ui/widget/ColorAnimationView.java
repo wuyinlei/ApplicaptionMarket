@@ -33,10 +33,10 @@ public class ColorAnimationView extends View implements ValueAnimator.AnimatorUp
 
     /**
      * 这是你唯一需要关心的方法
-     * @param mViewPager 你必须在设置 Viewpager 的 Adapter 这后，才能调用这个方法。
+     * @param mViewPager 你必须在设置 Viewpager 的 Adapter 之后，才能调用这个方法。
      * @param obj ,这个obj实现了 ColorAnimationView.OnPageChangeListener ，实现回调
      * @param count ,viewpager孩子的数量
-     * @param colors int... colors ，你需要设置的颜色变化值~~ 如何你传人 空，那么触发默认设置的颜色动画
+     * @param colors int... colors ，你需要设置的颜色变化值~~ 如何你传入空，那么触发默认设置的颜色动画
      * */
     /**
      * This is the only method you need care about.
@@ -44,7 +44,7 @@ public class ColorAnimationView extends View implements ValueAnimator.AnimatorUp
      * @param count ,this param set the count of the viewpaper's child
      * @param colors ,this param set the change color use (int... colors), so,you could set any
  *            length if you want.And by default. if you set nothing , don't worry i have already
- *            creat a default good change color!  */
+ *            create a default good change color!  */
     public void setmViewPager(ViewPager viewPager, int count, int... colors) {
         // this.mViewPager = mViewPager;
         if (viewPager.getAdapter() == null) {

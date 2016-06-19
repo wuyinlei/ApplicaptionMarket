@@ -1,5 +1,8 @@
 package yinlei.applicaptionmarket.ui.activity;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -8,8 +11,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.jaeger.library.StatusBarUtil;
 
@@ -60,6 +67,45 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
         mNavView.setNavigationItemSelectedListener(this);
         initTabs();
     }
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem menuItemNotification = menu.findItem(R.id.action_notification);
+        menuItemNotification.setIcon(R.mipmap.ic_menu_notification);
+
+        MenuItem menuItemSearch = menu.findItem(R.id.action_search);
+        menuItemSearch.setIcon(R.mipmap.ic_menu_search);
+
+        MenuItem menuItemShare = menu.findItem(R.id.action_share);
+        menuItemShare.setIcon(R.mipmap.ic_menu_share);
+
+        return true;
+    }
+
+    private Drawable buildCounterDrawable(int count, int backgroundImageId) {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.notification_count_layout, null);
+        view.setBackgroundResource(backgroundImageId);
+        TextView tvCount = (TextView) view.findViewById(R.id.tvCount);
+        if (count == 0) {
+            tvCount.setVisibility(View.GONE);
+        } else {
+            tvCount.setVisibility(View.VISIBLE);
+            tvCount.setText(String.valueOf(count));
+        }
+
+        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+
+        view.setDrawingCacheEnabled(true);
+        view.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+        view.setDrawingCacheEnabled(false);
+
+        return new BitmapDrawable(getResources(), bitmap);
+    }
+
 
     /**
      * 初始化tab

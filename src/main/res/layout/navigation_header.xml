@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@mipmap/drawer_menu_icon"/>
+        android:src="@mipmap/icon_def_head"/>
 
     <TextView
         android:id="@+id/tvNickName"

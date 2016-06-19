@@ -1,6 +1,8 @@
 package yinlei.applicaptionmarket.common;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
 
 import java.util.Stack;
 
@@ -99,6 +101,25 @@ public class AppManager {
             }
         }
         activityStack.clear();
+    }
+
+
+    /**
+     * 退出应用程序
+     */
+    public void AppExit(Context context) {
+        try {
+            finishAllActivity();
+            ActivityManager activityMgr =
+                    (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            activityMgr.killBackgroundProcesses(context.getPackageName());
+            System.exit(0);
+        } catch (Exception e) {
+        }
+    }
+
+    public boolean isAppExit() {
+        return activityStack == null || activityStack.isEmpty();
     }
 
 
