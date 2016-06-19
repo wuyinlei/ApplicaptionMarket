@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">应用商店</string>
     <string name="btn_start">进入主界面</string>
+    <string name="click_login">点击登录</string>
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
+
+    <string name="fragment_app">应用</string>
+    <string name="fragment_game">游戏</string>
+    <string name="fragment_discover">发现</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.Window;
 
@@ -19,7 +20,7 @@ import yinlei.applicaptionmarket.common.AppManager;
  * @date: 2016-06-09 18:45
  */
 
-public class BaseAppCompatActivity extends FragmentActivity {
+public class BaseAppCompatActivity extends AppCompatActivity {
 
     /**记录日志的标记*/
     private String TAG = BaseAppCompatActivity.class.getSimpleName();

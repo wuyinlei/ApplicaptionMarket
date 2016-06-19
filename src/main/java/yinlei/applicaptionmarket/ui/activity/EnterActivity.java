@@ -5,7 +5,6 @@ import android.text.TextUtils;
 
 import yinlei.applicaptionmarket.common.AppConstant;
 import yinlei.applicaptionmarket.common.MyApplication;
-import yinlei.applicaptionmarket.ui.MainActivity;
 import yinlei.applicaptionmarket.ui.base.BaseAppCompatActivity;
 import yinlei.applicaptionmarket.utils.SharedPreferencesUtils;
 

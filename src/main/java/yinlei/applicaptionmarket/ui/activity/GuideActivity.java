@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,6 @@ import butterknife.ButterKnife;
 import yinlei.applicaptionmarket.R;
 import yinlei.applicaptionmarket.common.AppConstant;
 import yinlei.applicaptionmarket.common.MyApplication;
-import yinlei.applicaptionmarket.ui.MainActivity;
 import yinlei.applicaptionmarket.ui.base.BaseAppCompatActivity;
 import yinlei.applicaptionmarket.ui.widget.ColorAnimationView;
 import yinlei.applicaptionmarket.ui.widget.PagerAdapter;
