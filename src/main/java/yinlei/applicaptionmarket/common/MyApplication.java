@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 /**
  * 在这里初始化一些需要用到的第三方框架
  *
@@ -31,6 +33,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         application = this;
+        Fresco.initialize(this);
     }
 
     /**

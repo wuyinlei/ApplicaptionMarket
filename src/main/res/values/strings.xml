@@ -11,4 +11,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Complete">完成</string>
+    <string name="Error">失败</string>
+    <string name="Download">下载</string>
+    <string name="appTop">下载排行</string>
+    <string name="appClasses">应用分类</string>
 </resources>

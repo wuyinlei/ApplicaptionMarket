@@ -22,9 +22,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-
-
-    compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.github.johnkil.android-progressfragment:progressfragment:1.4.+'
@@ -33,4 +30,5 @@ dependencies {
     compile 'com.jaeger.statusbaruitl:library:1.1.0'
     compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
     compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.facebook.fresco:fresco:0.11.0'
 }
