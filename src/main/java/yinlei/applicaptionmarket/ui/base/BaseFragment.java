@@ -17,6 +17,8 @@ import yinlei.applicaptionmarket.R;
 
 public class BaseFragment extends Fragment {
 
+    protected String getTAG;
+
     private String TAG = BaseFragment.class.getSimpleName();
 
     /**

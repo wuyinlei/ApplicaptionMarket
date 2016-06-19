@@ -13,4 +13,7 @@ public class AppConstant {
 
     /** SharePreferences文件名. */
     public static final String SHARE_PATH = "PlayApp";
+
+    /**引导页配置*/
+    public static final String GUIDE_SHOW = "guide_show";
 }

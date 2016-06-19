@@ -1,9 +1,11 @@
 package yinlei.applicaptionmarket.common;
 
 import android.app.Application;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 
 /**
- *  在这里初始化一些需要用到的第三方框架
+ * 在这里初始化一些需要用到的第三方框架
  *
  * @version V1.0 <描述当前版本功能>
  * @FileName: MyApplication.java
@@ -11,10 +13,43 @@ import android.app.Application;
  * @date: 2016-06-09 14:35
  */
 
-public class MyApplication extends Application{
+public class MyApplication extends Application {
+
+    private static MyApplication application;
+
+    public static MyApplication getApplication() {
+
+        if (application == null) {
+            application = new MyApplication();
+        }
+
+        return application;
+    }
+
 
     @Override
     public void onCreate() {
         super.onCreate();
+        application = this;
     }
+
+    /**
+     * 获取当前版本信息
+     *
+     * @return
+     */
+    public String getVersion() {
+        PackageManager manager = this.getPackageManager();
+        try {
+            PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
+            String version = info.versionName;
+            return "V " + version;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "未知";
+        }
+
+    }
+
+
 }

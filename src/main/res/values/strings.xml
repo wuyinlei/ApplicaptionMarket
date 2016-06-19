@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ApplicaptionMarket</string>
+    <string name="app_name">应用商店</string>
+    <string name="btn_start">进入主界面</string>
 </resources>
