@@ -20,10 +20,30 @@ import yinlei.applicaptionmarket.ui.base.BaseFragment;
 public class GameFragment extends BaseFragment {
 
     @Override
+    public void initUI(View view) {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void getBundle(Bundle bundle) {
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_discover, container, false);
+    }
+
+    @Override
+    public int initContentView() {
+        return 0;
     }
 
 }

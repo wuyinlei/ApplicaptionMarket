@@ -92,7 +92,7 @@ class AppItemViewHolder extends RecyclerView.ViewHolder {
 
     @OnClick(R.id.re_layout)
     void reItemClick() {
-        DetailActivity.startActivity(mContext, "dd", "dd", "dd", 3);
+        DetailActivity.startActivity(mContext, "webview_load_progress_drawable", "webview_load_progress_drawable", "webview_load_progress_drawable", 3);
     }
 
     public AppItemViewHolder(View itemView, Context context) {

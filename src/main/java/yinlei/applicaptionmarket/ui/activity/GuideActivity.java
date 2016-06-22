@@ -34,7 +34,7 @@ public class GuideActivity extends BaseAppCompatActivity implements ViewPager.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guide);
+       // setContentView(R.layout.activity_guide);
         ButterKnife.bind(this);
         SharedPreferencesUtils.putString(this, AppConstant.GUIDE_SHOW, MyApplication.getApplication().getVersion());
         View view_guide01 = LayoutInflater.from(this).inflate(R.layout.guide_layout, null);
@@ -60,6 +60,21 @@ public class GuideActivity extends BaseAppCompatActivity implements ViewPager.On
         mViewPager.setOnPageChangeListener(this);
         mColorAnimationView.setmViewPager(mViewPager, 4, 0xff7edd61, 0xffff704a, 0xff5d7ac5, 0xff56c8f2);
 
+    }
+
+    @Override
+    protected void initUiAndListener() {
+
+    }
+
+    @Override
+    protected boolean isApplyStatusBarTranslucency() {
+        return true;
+    }
+
+    @Override
+    public int initContentView() {
+        return R.layout.activity_guide;
     }
 
     @Override

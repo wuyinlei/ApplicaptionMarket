@@ -28,6 +28,21 @@ public class AppFragment extends BaseFragment {
 
 
     @Override
+    public void initUI(View view) {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void getBundle(Bundle bundle) {
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_app, container, false);
@@ -40,6 +55,11 @@ public class AppFragment extends BaseFragment {
         }
         recyclerView.setAdapter(new ListAppAdapter(getActivity(),datas));
         return view;
+    }
+
+    @Override
+    public int initContentView() {
+        return 0;
     }
 
 

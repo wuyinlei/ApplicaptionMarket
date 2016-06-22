@@ -1,8 +1,8 @@
 package yinlei.applicaptionmarket.ui.activity;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 
+import yinlei.applicaptionmarket.R;
 import yinlei.applicaptionmarket.common.AppConstant;
 import yinlei.applicaptionmarket.common.MyApplication;
 import yinlei.applicaptionmarket.ui.base.BaseAppCompatActivity;
@@ -10,14 +10,26 @@ import yinlei.applicaptionmarket.utils.SharedPreferencesUtils;
 
 public class EnterActivity extends BaseAppCompatActivity {
 
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initUiAndListener() {
+
+    }
+
+    @Override
+    protected boolean isApplyStatusBarTranslucency() {
+        return false;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    @Override
+    public int initContentView() {
+        return 0;
     }
 
     @Override

@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jaeger.library.StatusBarUtil;
 
@@ -46,27 +47,43 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         //initImmersive();
         //initToolbar();
         initUI();
     }
 
+    @Override
+    protected void initUiAndListener() {
+
+    }
+
+    @Override
+    protected boolean isApplyStatusBarTranslucency() {
+        return true;
+    }
+
+    @Override
+    public int initContentView() {
+        return R.layout.activity_main;
+    }
+
     /**
      * 初始化UI控件
      */
     private void initUI() {
-        StatusBarUtil.setColor(this,getResources().getColor(R.color.colorPrimary));
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
         initToolbar();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this,mDrawerLayout,mToolbar,R.string.drawer_open,R.string.drawer_close
+                this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close
         );
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();   //点击出现/隐藏左侧布局
         mNavView.setNavigationItemSelectedListener(this);
         initTabs();
+        //initImmersive();
     }
+
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -82,6 +99,13 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
         return true;
     }
 
+    /**
+     * 根据获得的系统的消息的个数，在消息提醒上显示消息条目
+     *
+     * @param count             消息个数
+     * @param backgroundImageId 背景图片ID
+     * @return
+     */
     private Drawable buildCounterDrawable(int count, int backgroundImageId) {
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.notification_count_layout, null);
@@ -106,6 +130,22 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
         return new BitmapDrawable(getResources(), bitmap);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_notification:
+                Toast.makeText(this, "通知", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_search:
+                Toast.makeText(this, "搜索", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_share:
+                Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     /**
      * 初始化tab
@@ -117,9 +157,9 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
         GameFragment gameFragmet = new GameFragment();
         DiscoverFragment discoverFragment = new DiscoverFragment();
 
-        viewPagerAdapter.addFragment(appFragment,getId(R.string.fragment_app));
-        viewPagerAdapter.addFragment(gameFragmet,getId(R.string.fragment_game));
-        viewPagerAdapter.addFragment(discoverFragment,getId(R.string.fragment_discover));
+        viewPagerAdapter.addFragment(appFragment, getId(R.string.fragment_app));
+        viewPagerAdapter.addFragment(gameFragmet, getId(R.string.fragment_game));
+        viewPagerAdapter.addFragment(discoverFragment, getId(R.string.fragment_discover));
         mViewpager.setAdapter(viewPagerAdapter);
 
         //布局
@@ -141,17 +181,17 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
 
     /**
      * 得到values文件中string中的字符串
-     * @param id   传入的id
-     * @return  字符串
+     *
+     * @param id 传入的id
+     * @return 字符串
      */
-    private String getId(int id){
+    private String getId(int id) {
         return getResources().getString(id);
     }
 
 
-
     private void initToolbar() {
-        if(mToolbar != null){
+        if (mToolbar != null) {
             setSupportActionBar(mToolbar);
         }
         assert mToolbar != null;
@@ -162,6 +202,25 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        return false;
+        switch (item.getItemId()) {
+            case R.id.item_application_manager://应用管理
+                Toast.makeText(this, "应用管理", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.item_detection_update://检测更新
+                Toast.makeText(this, "检测更新", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.item_setting://设置
+                Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.item_about://关于
+                AboutActivity.startActivity(this,"https://github.com/wuyinlei/ApplicaptionMarket");
+                break;
+            case R.id.item_feed_back://反馈
+
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 }

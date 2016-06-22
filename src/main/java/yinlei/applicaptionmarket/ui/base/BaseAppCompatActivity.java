@@ -1,12 +1,15 @@
 package yinlei.applicaptionmarket.ui.base;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.Window;
+import android.view.WindowManager;
 
 import yinlei.applicaptionmarket.R;
 import yinlei.applicaptionmarket.common.AppManager;
@@ -20,24 +23,43 @@ import yinlei.applicaptionmarket.common.AppManager;
  * @date: 2016-06-09 18:45
  */
 
-public class BaseAppCompatActivity extends AppCompatActivity {
+public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
-    /**记录日志的标记*/
+    /**
+     * 记录日志的标记
+     */
     private String TAG = BaseAppCompatActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         //不要标题栏
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+        if (initContentView() == 0){return;}
+        setContentView(initContentView());
         //每次打开一个activity的时候添加到Activity栈中，方便Activity的管理
+        initUiAndListener();
+        if (!isApplyStatusBarTranslucency()) {
+            return;
+        }
+        setTranslucentStatus(isApplyStatusBarTranslucency());
         AppManager.getInstance().addActivity(this);
+
     }
+
+    protected abstract void initUiAndListener() ;
+
+    /**
+     * is applyStatusBarTranslucency
+     */
+    protected abstract boolean isApplyStatusBarTranslucency();
+
 
     @Override
     protected void onResume() {
         super.onResume();
     }
+
 
     @Override
     protected void onPause() {
@@ -56,12 +78,16 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         AppManager.getInstance().finishActivity(this);
     }
 
-    /**打开activity*/
+    /**
+     * 打开activity
+     */
     protected void openActivity(Class<?> pClass) {
         openActivity(pClass, null);
     }
 
-    /**打开activity并传递bundle数据*/
+    /**
+     * 打开activity并传递bundle数据
+     */
     protected void openActivity(Class<?> pClass, Bundle pBundle) {
         Intent intent = new Intent(this, pClass);
         if (pBundle != null) {
@@ -102,5 +128,35 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
     }
 
+    /**
+     * 设置沉浸式状态栏
+     */
+    protected void setTranslucentStatus(boolean on) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window win = getWindow();
+            WindowManager.LayoutParams winParams = win.getAttributes();
+            final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+            if (on) {
+                winParams.flags |= bits;
+            } else {
+                winParams.flags &= ~bits;
+            }
+            win.setAttributes(winParams);
+        }
+    }
+
+
+    /**
+     * 设置view
+     */
+    public abstract int initContentView();
+
+    public void initToolBar(Toolbar mToolBar) {
+        if (null != mToolBar) {
+            setSupportActionBar(mToolBar);
+            getSupportActionBar().setDisplayShowHomeEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
 }

@@ -2,7 +2,11 @@ package yinlei.applicaptionmarket.ui.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import yinlei.applicaptionmarket.R;
 
@@ -15,7 +19,7 @@ import yinlei.applicaptionmarket.R;
  * @date: 2016-06-09 18:35
  */
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
     protected String getTAG;
 
@@ -58,4 +62,34 @@ public class BaseFragment extends Fragment {
         getActivity().overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     }
 
+    /**
+     * 初始化控件
+     */
+    public abstract void initUI(View view);
+
+    /**
+     * 在监听器之前把数据准备好
+     */
+    public abstract void initData();
+
+    /**
+     * 得到Activity传进来的值
+     */
+    public abstract void getBundle(Bundle bundle);
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getBundle(getArguments());
+        initUI(view);
+        initData();
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(initContentView(), null);
+    }
+
+    public abstract int initContentView();
 }

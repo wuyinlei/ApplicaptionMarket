@@ -13,7 +13,21 @@ public class DetailActivity extends BaseAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+    }
+
+    @Override
+    protected void initUiAndListener() {
+
+    }
+
+    @Override
+    protected boolean isApplyStatusBarTranslucency() {
+        return true;
+    }
+
+    @Override
+    public int initContentView() {
+        return R.layout.activity_detail;
     }
 
     public static void startActivity(Context mContext, String fid, String tid, String pid, int page) {

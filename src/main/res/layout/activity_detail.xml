@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="yinlei.applicaptionmarket.ui.activity.DetailActivity">
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/floatingMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            >
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floatingAttention"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_menu_comment"
+                app:fab_label="关注"
+                app:fab_size="mini"
+                />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floatingPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_report"
+                app:fab_label="发帖"
+                app:fab_size="mini"
+                />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floatingSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_menu_star_outline"
+                app:fab_label="按发帖时间排序"
+                app:fab_size="mini"
+                />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floatingRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_menu_share"
+                app:fab_label="刷新"
+                app:fab_size="mini"
+                />
+
+
+        </com.github.clans.fab.FloatingActionMenu>
+    </FrameLayout>
+</LinearLayout>
