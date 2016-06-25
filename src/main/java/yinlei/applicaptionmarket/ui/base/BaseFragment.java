@@ -73,6 +73,11 @@ public abstract class BaseFragment extends Fragment {
     public abstract void initData();
 
     /**
+     * 注入Injector
+     */
+    public abstract void initInjector();
+
+    /**
      * 得到Activity传进来的值
      */
     public abstract void getBundle(Bundle bundle);
@@ -81,6 +86,7 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getBundle(getArguments());
         initUI(view);
+        initInjector();
         initData();
         super.onViewCreated(view, savedInstanceState);
     }
@@ -88,7 +94,7 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(initContentView(), null);
+        return inflater.inflate(initContentView(), container,false);
     }
 
     public abstract int initContentView();

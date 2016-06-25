@@ -1,5 +1,21 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
 
+buildscript {
+    repositories {
+        mavenCentral()
+
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.2.3'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+repositories {
+    mavenCentral()
+}
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -11,6 +27,11 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -19,24 +40,26 @@ android {
     }
 }
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:cardview-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
-
     compile 'com.jaeger.statusbaruitl:library:1.1.0'
     compile 'com.yqritc:recyclerview-flexibledivider:1.2.6'
-
     //控件注入框架
     compile 'com.jakewharton:butterknife:7.0.1'
     //图片加载框架
     compile 'com.facebook.fresco:fresco:0.11.0'
-
     compile 'com.github.johnkil.android-progressfragment:progressfragment:1.4.+'
     //下载进度条
     compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
-
     compile 'com.github.clans:fab:1.6.4'
+    compile 'com.google.code.gson:gson:2.3.1'
+
+    compile'com.squareup.okhttp3:okhttp:3.2.0'
+    //dagger2注解
+    compile 'com.google.dagger:dagger:2.0.2'
+    apt 'com.google.dagger:dagger-compiler:2.0.2'
 }

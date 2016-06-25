@@ -81,6 +81,11 @@ public class BrowserFragment extends BaseFragment {
     }
 
     @Override
+    public void initInjector() {
+
+    }
+
+    @Override
     public void getBundle(Bundle bundle) {
         url = bundle.getString("url");
         title = bundle.getString("title");

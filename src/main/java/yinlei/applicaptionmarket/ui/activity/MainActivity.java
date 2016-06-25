@@ -44,18 +44,19 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
+
         //initImmersive();
         //initToolbar();
         initUI();
     }
-
+*/
     @Override
     protected void initUiAndListener() {
-
+        ButterKnife.bind(this);
+        initUI();
     }
 
     @Override

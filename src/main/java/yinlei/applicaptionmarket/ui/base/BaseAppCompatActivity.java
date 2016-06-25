@@ -38,10 +38,10 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         if (initContentView() == 0){return;}
         setContentView(initContentView());
         //每次打开一个activity的时候添加到Activity栈中，方便Activity的管理
-        initUiAndListener();
         if (!isApplyStatusBarTranslucency()) {
             return;
         }
+        initUiAndListener();
         setTranslucentStatus(isApplyStatusBarTranslucency());
         AppManager.getInstance().addActivity(this);
 

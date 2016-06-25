@@ -25,15 +25,27 @@ import yinlei.applicaptionmarket.ui.base.BaseFragment;
  */
 
 public class AppFragment extends BaseFragment {
-
+    RecyclerView recyclerView;
 
     @Override
     public void initUI(View view) {
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycle_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
     }
 
     @Override
     public void initData() {
+        List<Integer> datas = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            datas.add(i);
+        }
+        recyclerView.setAdapter(new ListAppAdapter(getActivity(), datas));
+    }
+
+    @Override
+    public void initInjector() {
 
     }
 
@@ -42,65 +54,11 @@ public class AppFragment extends BaseFragment {
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_app, container, false);
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycle_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        List<Integer> datas = new ArrayList<>();
-        for (int i   = 0; i < 100; i++) {
-            datas.add(i);
-        }
-        recyclerView.setAdapter(new ListAppAdapter(getActivity(),datas));
-        return view;
-    }
 
     @Override
     public int initContentView() {
-        return 0;
+        return R.layout.fragment_app;
     }
 
-
-    /*private class MyRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
-        private List<Integer> datas;
-        private Context context;
-
-        public MyRecycleAdapter(Context context, List<Integer> datas) {
-            this.datas =datas;
-            this.context = context;
-        }
-
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(context)
-                    .inflate(R.layout.item,parent,false);
-            MyViewHolder holder = new MyViewHolder(view);
-            return holder;
-        }
-
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            if (holder instanceof MyViewHolder){
-                MyViewHolder myViewHolder = (MyViewHolder) holder;
-                myViewHolder.mTextView.setText(datas.get(position) + "");
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return datas.size();
-        }
-
-        class MyViewHolder extends RecyclerView.ViewHolder{
-
-            private TextView mTextView;
-            public MyViewHolder(View itemView) {
-                super(itemView);
-                mTextView = (TextView) itemView.findViewById(R.id.text);
-            }
-        }*/
 
 }
