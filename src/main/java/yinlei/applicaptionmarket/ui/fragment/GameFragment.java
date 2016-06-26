@@ -101,7 +101,7 @@ public class GameFragment extends BaseFragment {
 
     @Override
     public int initContentView() {
-        return R.layout.fragment_game_fragmet;
+        return R.layout.fragment_game;
     }
 
 

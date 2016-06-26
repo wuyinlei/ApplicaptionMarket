@@ -40,7 +40,7 @@ public class AboutActivity extends BaseAppCompatActivity {
         url = getIntent().getStringExtra("url");
         title = getIntent().getStringExtra("title");
         mFragment = BrowserFragment
-                .newInstance(url,title , getIntent().getBooleanExtra("external", true));
+                .newInstance(url, title, getIntent().getBooleanExtra("external", true));
         getSupportFragmentManager().beginTransaction().replace(R.id.content, mFragment).commit();
     }
 
@@ -52,7 +52,7 @@ public class AboutActivity extends BaseAppCompatActivity {
     public static void startActivity(Context mContext, String url, boolean external) {
         Intent intent = new Intent(mContext, AboutActivity.class);
         intent.putExtra("url", url);
-        intent.putExtra("title","Blog");
+        intent.putExtra("title", "Blog");
         intent.putExtra("external", external);
         mContext.startActivity(intent);
     }
@@ -80,14 +80,15 @@ public class AboutActivity extends BaseAppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
        /* if (item.getItemId() ==android.R.id.home){
             finish();
             return true;
         }*/
         if (item.getItemId() == R.id.refresh) {
             if (mFragment != null) {
-               // mFragment.reload();
+                mFragment.reload();
                 Toast.makeText(this, "刷新", Toast.LENGTH_SHORT).show();
             }
         } else if (item.getItemId() == R.id.copy) {

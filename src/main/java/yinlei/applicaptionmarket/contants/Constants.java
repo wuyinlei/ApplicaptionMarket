@@ -13,9 +13,12 @@ public class Constants {
 
     public static final int TYPE_FEED_BACK = 100001;
 
-    public static final String ABOUT_ME="http://blog.csdn.net/wuyinlei";
+    public static final String ABOUT_ME = "http://blog.csdn.net/wuyinlei";
 
-    public static final String POST_DETAIL="http://blog.csdn.net/wuyinlei";
+    public static final String POST_DETAIL = "http://blog.csdn.net/wuyinlei";
 
     public static final int TYPE_POST = 100002;
+    public static final String THREAD_TYPE_HOT = "2";  //热帖
+    public static final String THREAD_TYPE_NEW = "1";//最新的帖子
+
 }

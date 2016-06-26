@@ -1,7 +1,11 @@
 package yinlei.applicaptionmarket.ui.widget;
-
 /**
- * Created by mcdull
+ * PagerAdapter
+ *
+ * @version V1.0 <描述当前版本功能>
+ * @FileName: PagerAdapter.java
+ * @author: 若兰明月
+ * @date: 2016-06-09 18:45
  */
 
 public abstract class PagerAdapter extends android.support.v4.view.PagerAdapter {

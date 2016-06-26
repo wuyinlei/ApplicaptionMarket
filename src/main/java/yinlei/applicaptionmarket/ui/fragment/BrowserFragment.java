@@ -47,7 +47,7 @@ public class BrowserFragment extends BaseFragment {
 
     @Override
     public void initData() {
-        if (!TextUtils.isEmpty(title)){
+        if (!TextUtils.isEmpty(title)) {
             getActivity().setTitle(BrowserFragment.this.title);
         }
 
@@ -112,5 +112,11 @@ public class BrowserFragment extends BaseFragment {
         return mFragment;
     }
 
+    /**
+     * WebView刷新
+     */
+    public void reload() {
+        mWebView.reload();
+    }
 
 }

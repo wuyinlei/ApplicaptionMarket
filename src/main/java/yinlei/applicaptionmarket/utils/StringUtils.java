@@ -3,7 +3,7 @@ package yinlei.applicaptionmarket.utils;
 import android.content.Context;
 
 /**
- * Created by sll on 2016/3/30.
+ * 字符串工具类
  */
 public class StringUtils {
 

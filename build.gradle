@@ -66,9 +66,9 @@ dependencies {
     compile 'com.thefinestartist:finestwebview:1.2.7'
 
     //dialog加载
-   /* compile('com.github.afollestad.material-dialogs:core:0.8.5.2@aar') {
-        transitive = true
-    }*/
+    /* compile('com.github.afollestad.material-dialogs:core:0.8.5.2@aar') {
+         transitive = true
+     }*/
     //compile 'com.afollestad.material-dialogs:commons:0.8.6.1'
-   // compile 'com.afollestad.material-dialogs:core:0.8.6.1'
+    // compile 'com.afollestad.material-dialogs:core:0.8.6.1'
 }

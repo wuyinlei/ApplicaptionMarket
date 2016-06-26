@@ -220,7 +220,7 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
                 Toast.makeText(this, "检测更新", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.item_setting://设置
-                Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
+                SettingActivity.startActivity(this);
                 break;
             case R.id.item_about://关于
                 AboutActivity.startActivity(this, Constants.ABOUT_ME);
