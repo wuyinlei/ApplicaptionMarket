@@ -24,13 +24,15 @@ import com.jaeger.library.StatusBarUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import yinlei.applicaptionmarket.R;
+import yinlei.applicaptionmarket.contants.Constants;
+import yinlei.applicaptionmarket.ui.DefineView;
 import yinlei.applicaptionmarket.ui.adapter.TabViewPagerAdapter;
 import yinlei.applicaptionmarket.ui.base.BaseAppCompatActivity;
 import yinlei.applicaptionmarket.ui.fragment.AppFragment;
 import yinlei.applicaptionmarket.ui.fragment.DiscoverFragment;
 import yinlei.applicaptionmarket.ui.fragment.GameFragment;
 
-public class MainActivity extends BaseAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,DefineView {
 
 
     @Bind(R.id.toolbar)
@@ -202,6 +204,13 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
 
 
     @Override
+    public void closeDrawers() {
+        mDrawerLayout.closeDrawers();
+    }
+
+
+
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_application_manager://应用管理
@@ -214,10 +223,11 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
                 Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.item_about://关于
-                AboutActivity.startActivity(this,"https://github.com/wuyinlei/ApplicaptionMarket");
+                AboutActivity.startActivity(this, Constants.ABOUT_ME);
                 break;
             case R.id.item_feed_back://反馈
-
+                PostActivity.startActivity(MainActivity.this, Constants.TYPE_FEED_BACK, "", "22222", "",
+                        "ApplicationMarket For Android");
                 break;
             default:
                 break;

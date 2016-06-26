@@ -12,6 +12,8 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 
+import com.thefinestartist.finestwebview.FinestWebView;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import yinlei.applicaptionmarket.BuildConfig;
@@ -35,49 +37,48 @@ public class BrowserFragment extends BaseFragment {
     @Override
     public void initUI(View view) {
         ButterKnife.bind(this, view);
+        WebSettings settings = mWebView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        //String openUrl="http://www.baidu.com";
 
-        /*WebSettings webSettings =  mWebView .getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setBuiltInZoomControls(true);
-        webSettings.setSupportZoom(true);
-        mWebView.setWebChromeClient(new WebChromeClient(){
-            @Override
-            public void onProgressChanged(WebView view, int newProgress) {
-            mProgress.setProgress(newProgress);
-                if (newProgress == 100){
-                    mProgress.setVisibility(View.GONE);
-                } else {
-                    mProgress.setVisibility(View.VISIBLE);
-                }
+        //new FinestWebView.Builder(getActivity()).show(url);
 
-            }
-
-            @Override
-            public void onReceivedTitle(WebView view, String title) {
-                if (!TextUtils.isEmpty(BrowserFragment.this.title)){
-                    //getActivity().setTitle(BrowserFragment.this.title);
-
-                }
-            }
-        });
-        if (external){
-            mWebView.setWebViewClient(new WebViewClient(){
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    if (url != null){
-                        if (BuildConfig.DEBUG) Log.d("BrowserFragment", url);
-                        view.loadUrl(url);
-                    }
-                    return true;
-                }
-            });
-        }
-*/
     }
 
     @Override
     public void initData() {
-        //mWebView.loadUrl(url);
+        if (!TextUtils.isEmpty(title)){
+            getActivity().setTitle(BrowserFragment.this.title);
+        }
+
+        //当用户点击一个webView中的页面的链接时，通常，是由默认的的浏览器打开并加载目标URL的
+//然而，你可以在webView中覆盖这一行为,那么链接就会在webView中打开
+        mWebView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                //当返回值是true的时候由webView来打开，为false的时候则由第三方或者系统默认的浏览器打开
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        mWebView.loadUrl(url);
+       /* String openUrl="http://www.baidu.com";
+
+        //当用户点击一个webView中的页面的链接时，通常，是由默认的的浏览器打开并加载目标URL的
+//然而，你可以在webView中覆盖这一行为,那么链接就会在webView中打开
+        mWebView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                //当返回值是true的时候由webView来打开，为false的时候则由第三方或者系统默认的浏览器打开
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        mWebView.loadUrl(openUrl);
+        //new FinestWebView.Builder(getActivity()).show(url);
+*/
     }
 
     @Override

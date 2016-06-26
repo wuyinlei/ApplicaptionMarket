@@ -99,6 +99,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.dmytrodanylyk.circular-progress-button/library/1.1.3/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.johnkil.android-progressfragment/progressfragment/1.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.jaeger.statusbaruitl/library/1.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.thefinestartist/finestwebview/1.2.7/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.thefinestartist/utils/0.9.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.yqritc/recyclerview-flexibledivider/1.2.6/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
@@ -133,8 +135,10 @@
     <orderEntry type="library" exported="" name="support-v4-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="library-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="finestwebview-1.2.7" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="library-1.1.3" level="project" />
+    <orderEntry type="library" exported="" name="annotations-0.9.0" level="project" />
     <orderEntry type="library" exported="" name="fbcore-0.11.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-0.11.0" level="project" />
@@ -144,6 +148,7 @@
     <orderEntry type="library" exported="" name="dagger-2.0.2" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-23.4.0" level="project" />
+    <orderEntry type="library" exported="" name="utils-0.9.0" level="project" />
     <orderEntry type="library" exported="" name="fab-1.6.4" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
     <orderEntry type="library" exported="" name="okhttp-3.2.0" level="project" />

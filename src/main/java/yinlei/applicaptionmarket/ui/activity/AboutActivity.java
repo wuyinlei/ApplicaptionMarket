@@ -20,11 +20,11 @@ import yinlei.applicaptionmarket.utils.StringUtils;
 
 public class AboutActivity extends BaseAppCompatActivity {
 
-
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
 
     private String url;
+    private String title;
 
     private BrowserFragment mFragment;
 
@@ -38,8 +38,9 @@ public class AboutActivity extends BaseAppCompatActivity {
         ButterKnife.bind(this);
         initToolBar(mToolbar);
         url = getIntent().getStringExtra("url");
+        title = getIntent().getStringExtra("title");
         mFragment = BrowserFragment
-                .newInstance(url, "", getIntent().getBooleanExtra("external", true));
+                .newInstance(url,title , getIntent().getBooleanExtra("external", true));
         getSupportFragmentManager().beginTransaction().replace(R.id.content, mFragment).commit();
     }
 
@@ -51,6 +52,7 @@ public class AboutActivity extends BaseAppCompatActivity {
     public static void startActivity(Context mContext, String url, boolean external) {
         Intent intent = new Intent(mContext, AboutActivity.class);
         intent.putExtra("url", url);
+        intent.putExtra("title","Blog");
         intent.putExtra("external", external);
         mContext.startActivity(intent);
     }
@@ -79,10 +81,10 @@ public class AboutActivity extends BaseAppCompatActivity {
     }
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() ==android.R.id.home){
+       /* if (item.getItemId() ==android.R.id.home){
             finish();
             return true;
-        }
+        }*/
         if (item.getItemId() == R.id.refresh) {
             if (mFragment != null) {
                // mFragment.reload();

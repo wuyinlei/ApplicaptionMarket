@@ -14,16 +14,8 @@ public interface DefineView {
     /**
      * init UI && Listener
      */
-    void initUi();
+   void closeDrawers();
 
-    /**
-     * init Listener
-     */
-    void initListener();
 
-    /**
-     * init Validata
-     */
-    void initValidata();
 
 }
