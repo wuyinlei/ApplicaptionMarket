@@ -35,6 +35,14 @@
     <string name="category_other">其他</string>
     <string name="settings_pic_path">图片保存路径</string>
     <string name="settings_clear_cache">清空缓存</string>
+    <string name="hint_name">请输入用户名</string>
+    <string name="hint_password">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="user_login">登录</string>
+
+    <string name="error_login_empty">用户名/Email/手机号不能为空</string>
+    <string name="error_login_erroe">用户名/Email/手机号格式错误</string>
+    <string name="error_pswd_empty">密码不能为空</string>
 
 
     <string-array name="swipeBackEdgeMode">

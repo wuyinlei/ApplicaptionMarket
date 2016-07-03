@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
+import butterknife.ButterKnife;
 import yinlei.applicaptionmarket.R;
 import yinlei.applicaptionmarket.common.AppManager;
 
@@ -38,11 +39,13 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         if (initContentView() == 0){return;}
         setContentView(initContentView());
+        ButterKnife.bind(this);
         //每次打开一个activity的时候添加到Activity栈中，方便Activity的管理
         if (!isApplyStatusBarTranslucency()) {
             return;
         }
         initUiAndListener();
+
         setTranslucentStatus(isApplyStatusBarTranslucency());
         AppManager.getInstance().addActivity(this);
 

@@ -20,9 +20,6 @@ import yinlei.applicaptionmarket.BuildConfig;
 import yinlei.applicaptionmarket.R;
 import yinlei.applicaptionmarket.ui.base.BaseFragment;
 
-/**
- *
- */
 public class BrowserFragment extends BaseFragment {
 
     @Bind(R.id.webView)

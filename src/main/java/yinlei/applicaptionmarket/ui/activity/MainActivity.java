@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,8 +33,8 @@ import yinlei.applicaptionmarket.ui.fragment.AppFragment;
 import yinlei.applicaptionmarket.ui.fragment.DiscoverFragment;
 import yinlei.applicaptionmarket.ui.fragment.GameFragment;
 
-public class MainActivity extends BaseAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,DefineView {
-
+public class MainActivity extends BaseAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DefineView {
+    ImageView mImageView;
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
@@ -57,7 +58,6 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
 */
     @Override
     protected void initUiAndListener() {
-        ButterKnife.bind(this);
         initUI();
     }
 
@@ -83,6 +83,12 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();   //点击出现/隐藏左侧布局
         mNavView.setNavigationItemSelectedListener(this);
+
+        mImageView = (ImageView) mNavView.getHeaderView(0).findViewById(R.id.ivAvatar);
+        mImageView.setOnClickListener(view->{
+            openActivity(LoginActivity.class);
+        });
+
         initTabs();
         //initImmersive();
     }
@@ -207,7 +213,6 @@ public class MainActivity extends BaseAppCompatActivity implements NavigationVie
     public void closeDrawers() {
         mDrawerLayout.closeDrawers();
     }
-
 
 
     @Override

@@ -6,7 +6,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
     app:cardElevation="3dp"
@@ -18,11 +18,13 @@
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/re_layout"
+        android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/app_icon"
+            android:padding="5dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_centerVertical="true"
@@ -33,13 +35,14 @@
         <LinearLayout
             android:id="@+id/app_info_layout"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignTop="@id/app_icon"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/app_icon"
             android:orientation="vertical">
 
             <TextView
+                android:paddingTop="3dp"
                 android:id="@+id/app_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,6 +94,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignTop="@id/app_icon"
             android:layout_marginRight="5dp"
+            android:paddingTop="10dp"
+            android:paddingRight="5dp"
             android:textColor="@color/colorPrimary"
             android:textSize="12sp"
             app:cpb_selectorIdle="@drawable/idle_state_selector"

@@ -35,7 +35,6 @@ public class GuideActivity extends BaseAppCompatActivity implements ViewPager.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // setContentView(R.layout.activity_guide);
-        ButterKnife.bind(this);
         SharedPreferencesUtils.putString(this, AppConstant.GUIDE_SHOW, MyApplication.getApplication().getVersion());
         View view_guide01 = LayoutInflater.from(this).inflate(R.layout.guide_layout, null);
         view_guide01.findViewById(R.id.guide_point).setBackgroundResource(R.mipmap.guide_01_point);

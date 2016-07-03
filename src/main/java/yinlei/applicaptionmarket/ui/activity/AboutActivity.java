@@ -35,7 +35,6 @@ public class AboutActivity extends BaseAppCompatActivity {
 
     @Override
     protected void initUiAndListener() {
-        ButterKnife.bind(this);
         initToolBar(mToolbar);
         url = getIntent().getStringExtra("url");
         title = getIntent().getStringExtra("title");

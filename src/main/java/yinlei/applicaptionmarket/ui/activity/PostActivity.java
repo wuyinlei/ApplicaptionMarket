@@ -70,7 +70,6 @@ public class PostActivity extends BaseAppCompatActivity {
 
     @Override
     protected void initUiAndListener() {
-        ButterKnife.bind(this);
         initToolBar(mToolbar);
         initPostType();
     }

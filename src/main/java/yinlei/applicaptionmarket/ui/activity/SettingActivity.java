@@ -23,7 +23,6 @@ public class SettingActivity extends BaseAppCompatActivity {
 
     @Override
     protected void initUiAndListener() {
-        ButterKnife.bind(this);
         initToolBar(mToolbar);
         setTitle("设置");
         getFragmentManager().beginTransaction().replace(R.id.content,new SettingFragment()).commit();

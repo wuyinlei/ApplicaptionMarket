@@ -18,6 +18,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".ui.activity.EnterActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -38,6 +39,8 @@
         <activity android:name=".ui.activity.GalleryActivity">
         </activity>
         <activity android:name=".ui.activity.SettingActivity">
+        </activity>
+        <activity android:name=".ui.activity.LoginActivity">
         </activity>
     </application>
 

@@ -1,7 +1,9 @@
 package yinlei.applicaptionmarket.ui.adapter;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import yinlei.applicaptionmarket.R;
 import yinlei.applicaptionmarket.ui.activity.DetailActivity;
+import yinlei.applicaptionmarket.utils.SettingPrefUtils;
+import yinlei.applicaptionmarket.utils.StringUtils;
+import yinlei.applicaptionmarket.utils.UIUtils;
 
 /**
  * 在此写用途
@@ -60,7 +65,14 @@ public class ListAppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         if (holder instanceof AppItemViewHolder) {
-
+            ((AppItemViewHolder) holder).appName.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    SettingPrefUtils.getTitleSize(UIUtils.getContext()));
+            ((AppItemViewHolder) holder).appSize.setTextSize(TypedValue.COMPLEX_UNIT_PX
+            ,SettingPrefUtils.getTextSize(UIUtils.getContext()));
+            ((AppItemViewHolder) holder).appDes.setTextSize(TypedValue.COMPLEX_UNIT_PX
+                    ,SettingPrefUtils.getTitleSize(UIUtils.getContext()));
+            ((AppItemViewHolder) holder).appDownload.setTextSize(TypedValue.COMPLEX_UNIT_PX
+                    ,SettingPrefUtils.getTextSize(UIUtils.getContext()));
         } else if (holder instanceof HeaderViewHolder) {
 
         }

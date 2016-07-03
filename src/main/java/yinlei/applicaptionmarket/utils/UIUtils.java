@@ -1,8 +1,11 @@
 package yinlei.applicaptionmarket.utils;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 
 import yinlei.applicaptionmarket.common.MyApplication;
@@ -72,4 +75,22 @@ public class UIUtils {
             BaseApplication.getmHandler().post(runnable);
         }
     }*/
+
+    /**
+     * 隐藏键盘
+     *
+     * @param context
+     */
+    public static void hideKeyBoard(Activity context) {
+        View view = context.getCurrentFocus();
+        if (view != null) {
+            ((InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE))
+                    .hideSoftInputFromInputMethod(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+        /*(InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE)
+                    .hideSoftInputFromInputMethod(view.getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+        }*/
+    }
+
+
 }

@@ -77,7 +77,7 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
     private void cleanCache() {
         //        new MaterialDialog.Builder(getActivity()).title("提示").content("正在清空缓存...").progress(true,0).show();
         CacheUtils.cleanApplicationCache(UIUtils.getContext());
-        Toast.makeText(getActivity(), "缓存清理成功", Toast.LENGTH_SHORT);
+        Toast.makeText(getActivity(), "缓存清理成功", Toast.LENGTH_SHORT).show();
         pClearCache.setSummary(CacheUtils.getCacheSize(UIUtils.getContext()));
     }
 

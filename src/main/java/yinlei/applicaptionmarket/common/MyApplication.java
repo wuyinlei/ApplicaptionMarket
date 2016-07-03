@@ -18,6 +18,8 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 public class MyApplication extends Application {
 
     private static MyApplication application;
+    private Graph mGraph;
+
 
     public static MyApplication getApplication() {
 
@@ -34,6 +36,12 @@ public class MyApplication extends Application {
         super.onCreate();
         application = this;
         Fresco.initialize(this);
+        mGraph = Graph.Initializer.init();
+    }
+
+
+    public Graph getGraph() {
+        return mGraph;
     }
 
     /**
